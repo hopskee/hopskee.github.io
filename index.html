@@ -103,6 +103,7 @@
   /* проекты справа, маска уходит влево */
   .projects { display: grid; gap: 28px; margin-left: auto; width: min(760px, 100%); }
   .project { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 28px; padding: 26px; }
+  .project > div, .projects, .services, .glass { min-width: 0; }
   .thumb { position: relative; aspect-ratio: 1; border-radius: 18px; overflow: hidden; border: 1px solid var(--edge);
     background: radial-gradient(60% 55% at 50% 45%, rgba(74, 92, 255, 0.45), rgba(10, 14, 36, 0) 70%), #050815; }
   .t2 { background: radial-gradient(60% 55% at 50% 45%, rgba(141, 26, 44, 0.5), rgba(10, 14, 36, 0) 70%), #08060f; }
@@ -150,8 +151,12 @@
     body { font-size: 16px; }
     .hero { padding-bottom: 8vh; }
     .hero h1 .r { text-align: left; }
-    .project { grid-template-columns: 1fr; padding: 18px; }
-    .thumb { max-width: 280px; }
+    .project { grid-template-columns: minmax(0, 1fr); padding: 18px; gap: 18px; }
+    .block { padding: 9vh 0; }
+    .contact { min-height: 80vh; padding-bottom: 6vh; }
+    h2 { margin-bottom: 28px; }
+    .shots img { height: 110px; }
+    .thumb { width: 100%; max-width: 320px; margin: 0 auto; }
     .projects, .services, .steps { width: 100%; }
     .torch { display: none; }
   }

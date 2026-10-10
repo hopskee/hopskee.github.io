@@ -103,11 +103,11 @@
   /* проекты справа, маска уходит влево */
   .projects { display: grid; gap: 28px; margin-left: auto; width: min(760px, 100%); }
   .project { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 28px; padding: 26px; }
-  .thumb { aspect-ratio: 1; border-radius: 18px; display: grid; place-items: center; overflow: hidden; border: 1px solid var(--edge);
+  .thumb { position: relative; aspect-ratio: 1; border-radius: 18px; overflow: hidden; border: 1px solid var(--edge);
     background: radial-gradient(60% 55% at 50% 45%, rgba(74, 92, 255, 0.45), rgba(10, 14, 36, 0) 70%), #050815; }
   .t2 { background: radial-gradient(60% 55% at 50% 45%, rgba(141, 26, 44, 0.5), rgba(10, 14, 36, 0) 70%), #08060f; }
   .t3 { background: radial-gradient(60% 55% at 50% 45%, rgba(111, 134, 255, 0.4), rgba(10, 14, 36, 0) 70%), #050815; }
-  .thumb img { height: 78%; width: auto; filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.7)); transition: transform .6s cubic-bezier(.2, .8, .2, 1); }
+  .thumb img { position: absolute; inset: 0; margin: auto; height: 78%; width: auto; filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.7)); transition: transform .6s cubic-bezier(.2, .8, .2, 1); }
   .project:hover .thumb img { transform: scale(1.06) rotate(-3deg); }
   .project h3 { margin: 2px 0 6px; font-family: var(--display); font-weight: 500; font-size: 26px; letter-spacing: -0.03em; }
   .project .kind { color: var(--muted); font-size: 15px; margin: 0 0 12px; }

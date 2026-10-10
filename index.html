@@ -359,7 +359,9 @@
     var e = intro * intro * (3 - 2 * intro);
     var ry = cur.ry + ndc.x * 16 + Math.sin(t * 0.5) * 1.5, rx = ndc.y * 10, rz = Math.sin(t * 0.6) * 1.2;
     maskEl.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0) perspective(1400px) rotateY(' + ry.toFixed(2) + 'deg) rotateX(' + rx.toFixed(2) + 'deg) rotate(' + rz.toFixed(2) + 'deg) scale(' + (cur.s * (mob ? 0.78 : 1) * (0.94 + 0.06 * e)).toFixed(3) + ')';
-    maskEl.style.opacity = e.toFixed(3);
+    // на телефоне маска видна только в первом блоке и в контактах, чтобы не мелькала за карточками
+    var vis = mob ? Math.min(1, Math.max(0, (cur.glow - 0.2) / 0.13)) : 1;
+    maskEl.style.opacity = (e * vis).toFixed(3);
     maskEl.style.setProperty('--glow', Math.min(1, cur.glow * (0.85 + 0.15 * Math.sin(t * 2.2))).toFixed(3));
   }
   requestAnimationFrame(maskFrame);
